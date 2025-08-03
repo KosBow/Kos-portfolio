@@ -4,8 +4,6 @@ Kos Portfolio
 
 A personal portfolio website built with React, TypeScript, Vite, and Tailwind CSS. Showcases projects, skills, and contact information.
 
-Table of Contents
-
 About
 
 This repository contains a modern, responsive portfolio website template designed to highlight projects, skills, and experiences. It leverages:
