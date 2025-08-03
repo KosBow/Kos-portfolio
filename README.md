@@ -1,4 +1,4 @@
-Kos Portfolio
+Khosrat A Portfolio
 
 Personal portfolio website built with React, TypeScript, Vite, and Tailwind CSS to showcase your projects, skills, and contact info.
 
