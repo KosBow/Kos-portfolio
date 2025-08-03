@@ -8,30 +8,6 @@ Table of Contents
 
 About
 
-Features
-
-Tech Stack
-
-Installation
-
-Development
-
-Build
-
-Deploy
-
-Project Structure
-
-Configuration
-
-Contributing
-
-License
-
-Author
-
-About
-
 This repository contains a modern, responsive portfolio website template designed to highlight projects, skills, and experiences. It leverages:
 
 React for UI components
