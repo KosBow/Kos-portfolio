@@ -2,7 +2,7 @@ Kos Portfolio
 
 
 
-A personal portfolio website built with React, TypeScript, Vite, and Tailwind CSS. Showcases projects, skills, and contact information to help secure IT roles in Sweden and beyond.
+A personal portfolio website built with React, TypeScript, Vite, and Tailwind CSS. Showcases projects, skills, and contact information.
 
 Table of Contents
 
