@@ -31,7 +31,7 @@ Personal portfolio website built with React, TypeScript, Vite, and Tailwind CSS 
 
 🔍 About
 
-A minimal, responsive portfolio template that highlights your work:
+A minimal, responsive portfolio template that highlights my work:
 
 Modern UI: Clean, mobile-first design
 
