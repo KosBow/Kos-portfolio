@@ -1,6 +1,7 @@
 Khosrat A Portfolio
 
 Personal portfolio website built with React, TypeScript, Vite, and Tailwind CSS to showcase my projects, skills, and contact info.
+The project was originally inspired by a YouTube tutorial from [PedroTech](https://www.youtube.com/c/PedroTechnologies). But I customized and adapted the structure, design, and content to fit my own needs and style.  
 
 📑 Table of Contents
 
