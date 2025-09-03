@@ -35,6 +35,7 @@ export const AboutSection = () => {
                 href="/Khosrat-Abobakri-CV.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Open my CV in a new tab"
                 className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
               >
                 Download CV
@@ -76,7 +77,10 @@ export const AboutSection = () => {
             <div className="gradient-border p-6 card-hover">
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-full bg-primary/10">
-                  <Briefcase className="h-6 w-6 text-primary" aria-hidden="true" />
+                  <Briefcase
+                    className="h-6 w-6 text-primary"
+                    aria-hidden="true"
+                  />
                 </div>
                 <div className="text-left">
                   <h4 className="font-semibold text-lg">Ownership & Growth</h4>
