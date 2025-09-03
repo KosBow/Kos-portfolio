@@ -124,6 +124,13 @@ body {
   box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
 }
 
+@utility meteor {
+  @apply absolute rounded-full;
+  background: linear-gradient(90deg, #fff, rgba(255,255,255,0));
+  transform: rotate(-45deg);
+  opacity: 0;
+}
+
 /* Layout root */
 #root {
   max-width: 100%;

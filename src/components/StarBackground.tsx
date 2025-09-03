@@ -78,22 +78,22 @@ export const StarBackground = () => {
             left: `${star.x}%`,
             top: `${star.y}%`,
             opacity: star.opacity,
-            animationDuration: `${star.animationDuration}s`,
+            animationDuration: star.animationDuration + "s",
           }}
         />
       ))}
 
-      {meteors.map((m) => (
+      {meteors.map((meteor) => (
         <div
-          key={m.id}
+          key={meteor.id}
           className="meteor animate-meteor"
           style={{
-            width: `${m.size * 50}px`,
-            height: `${m.size * 2}px`,
-            left: `${m.x}%`,
-            top: `${m.y}%`,
-            animationDelay: `${m.delay}s`,          // ← needs units
-            animationDuration: `${m.animationDuration}s`,
+            width: meteor.size * 50 + "px",
+            height: meteor.size * 2 + "px",
+            left: meteor.x + "%",
+            top: meteor.y + "%",
+            animationDelay: `${meteor.delay}s`,
+            animationDuration: meteor.animationDuration + "s",
           }}
         />
       ))}
