@@ -20,6 +20,7 @@ export const Home = () => {
         <AboutSection />
         <SkillsSection />
         <ProjectsSection />
+        {/* Contact Section */}
       </main>
       {/* Footer */}
     </div>
