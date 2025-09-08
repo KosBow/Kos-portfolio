@@ -104,7 +104,7 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
             </div>
 
             <div className="pt-8">
-              <h4 className="font-medium mb-4">Connect</h4>
+              <h4 className="font-medium mb-4">Get in touch</h4>
               <div className="flex space-x-4 justify-center">
                 <a
                   href="https://www.linkedin.com/in/khosrat-abobakri/"
@@ -202,7 +202,7 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
                   "cosmic-button w-full flex items-center justify-center gap-2"
                 )}
               >
-                {isSubmitting ? "Sending…" : "Let’s Connect"}
+                {isSubmitting ? "Sending…" : "Send Message"}
                 <Send size={16} />
               </button>
 
