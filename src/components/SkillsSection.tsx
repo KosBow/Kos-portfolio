@@ -39,7 +39,7 @@ const skills: Skill[] = [
   // Tools
   { name: "Git/GitHub", level: LEVEL.confident, category: "tools", evidence: "Daily use, branching & PR workflows" },
   { name: "Visual Studio / VS Code", level: LEVEL.advanced, category: "tools", evidence: "Primary IDEs" },
-  { name: "Agile / Scrum", level: LEVEL.working, category: "tools", evidence: "Used in group projects and final thesis + intership" },
+  { name: "Agile / Scrum", level: LEVEL.working, category: "tools", evidence: "Group projects, final thesis, and internship." },
 ];
 
 const categories = ["all", "frontend", "backend", "tools"] as const;
