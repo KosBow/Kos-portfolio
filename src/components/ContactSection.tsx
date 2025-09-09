@@ -15,31 +15,36 @@ export const ContactSection = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
-  const form = e.currentTarget;
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
 
-  if (!form.checkValidity()) {
-    const emailEl = form.elements.namedItem("email") as HTMLInputElement | null;
-    toast({
-      title: "Please use a valid email",
-      description: "Example: name@company.com",
-      variant: "destructive",
-    });
-    if (emailEl) {
-      emailEl.reportValidity();
-      emailEl.focus();
+    if (!form.checkValidity()) {
+      const emailEl = form.elements.namedItem(
+        "email"
+      ) as HTMLInputElement | null;
+      toast({
+        title: "Please use a valid email",
+        description: "Example: name@company.com",
+        variant: "destructive",
+      });
+      if (emailEl) {
+        emailEl.reportValidity();
+        emailEl.focus();
+      }
+      return;
     }
-    return;
-  }
 
-  setIsSubmitting(true);
-  setTimeout(() => {
-    toast({ title: "Message sent!", description: "Thanks! I’ll get back to you shortly." });
-    setIsSubmitting(false);
-    form.reset();
-  }, 1200);
-};
+    setIsSubmitting(true);
+    setTimeout(() => {
+      toast({
+        title: "Message sent!",
+        description: "Thanks! I’ll get back to you shortly.",
+      });
+      setIsSubmitting(false);
+      form.reset();
+    }, 1200);
+  };
 
   return (
     <section id="contact" className="py-24 px-4 relative bg-secondary/30">
@@ -49,9 +54,10 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         </h2>
 
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          I’m <span className="font-medium">Khosrat</span> — a Junior .NET
-          Developer in Sweden, passionate about building modern web apps with
-          React and .NET Core. Always open to opportunities and collaborations.
+          I’m <span className="font-medium">Khosrat</span> —  a
+          .NET Developer in Sweden, passionate about building modern web apps
+          with React and .NET Core. Always open to new opportunities and
+          collaborations.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -166,16 +172,16 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
                   Your email
                 </label>
                 <input
- type="email"
-  id="email"
-  name="email"
-  required
-  pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$"
-  title="Please enter a valid email like name@company.com"
-  autoComplete="email"
-  inputMode="email"
-  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
-  placeholder="name@company.com"
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$"
+                  title="Please enter a valid email like name@company.com"
+                  autoComplete="email"
+                  inputMode="email"
+                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
+                  placeholder="name@company.com"
                 />
               </div>
 

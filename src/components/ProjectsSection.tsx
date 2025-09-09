@@ -21,9 +21,9 @@ export const ProjectsSection = () => {
           Featured <span className="text-primary">Projects</span>
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          These projects reflect my journey as a .NET developer, where I focused
-          on building full-stack applications with React and .NET Core, always
-          keeping performance, accessibility, and user experience in mind.
+          These projects reflect my journey as a .NET developer, focusing on
+          full-stack applications with React and .NET Core — always keeping
+          performance, accessibility, and user experience in mind.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (

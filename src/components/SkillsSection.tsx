@@ -20,14 +20,14 @@ type Skill = {
 
 const skills: Skill[] = [
   // Frontend
-  { name: "HTML/CSS", level: LEVEL.confident, category: "frontend", evidence: "ZerBarberShop (WCAG, responsive design)" },
+  { name: "HTML/CSS", level: LEVEL.confident, category: "frontend", evidence: "Hobby projcts + ZerBarberShop (WCAG, responsive design)" },
   { name: "JavaScript (ES6+)", level: LEVEL.working, category: "frontend", evidence: "React projects, hobby app" },
-  { name: "React", level: LEVEL.working, category: "frontend", evidence: "ZerBarberShop (frontend)" },
+  { name: "React", level: LEVEL.working, category: "frontend", evidence: "ZerBarberShop (frontend) + hobby projects." },
   { name: "TypeScript", level: LEVEL.working, category: "frontend", evidence: "Smaller components in personal projects" },
   { name: "Accessibility & Responsive Design", level: LEVEL.working, category: "frontend", evidence: "ZerBarberShop, accessibility focus" },
 
   // Backend
-  { name: "C# / .NET Core", level: LEVEL.working, category: "backend", evidence: "API & backend for ZerBarberShop" },
+  { name: "C# / .NET Core", level: LEVEL.working, category: "backend", evidence: "API & backend for ZerBarberShop + school/personal projects" },
   { name: "ASP.NET Web API", level: LEVEL.working, category: "backend", evidence: "CRUD, auth patterns in school/personal projects" },
   { name: "Entity Framework / LINQ", level: LEVEL.working, category: "backend", evidence: "Data models + queries (SQLite)" },
   { name: "SQLite / SQL", level: LEVEL.working, category: "backend", evidence: "ZerBarberShop, local development flow" },
@@ -39,7 +39,7 @@ const skills: Skill[] = [
   // Tools
   { name: "Git/GitHub", level: LEVEL.confident, category: "tools", evidence: "Daily use, branching & PR workflows" },
   { name: "Visual Studio / VS Code", level: LEVEL.advanced, category: "tools", evidence: "Primary IDEs" },
-  { name: "Agile / Scrum", level: LEVEL.working, category: "tools", evidence: "Group projects & internship" },
+  { name: "Agile / Scrum", level: LEVEL.working, category: "tools", evidence: "Used in group projects and final thesis + intership" },
 ];
 
 const categories = ["all", "frontend", "backend", "tools"] as const;
@@ -98,7 +98,7 @@ export const SkillsSection = () => {
           My <span className="text-primary">Skills</span>
         </h2>
         <p className="text-center text-muted-foreground mb-10">
-          Junior .NET developer who learns fast, cares about accessibility, and enjoys clean, reliable code.
+          .NET developer who learns fast, cares about accessibility, and enjoys clean, reliable code.
         </p>
 
         {/* Personality / values */}
