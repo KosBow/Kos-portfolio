@@ -14,20 +14,37 @@ export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // 1) Skugga headern vid scroll
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // 2) Lås body-scroll när mobilmenyn är öppen
+  useEffect(() => {
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = isMenuOpen ? "hidden" : prev || "";
+    return () => { document.body.style.overflow = prev; };
+  }, [isMenuOpen]);
+
+  // 3) Stäng med ESC (tillgänglighet)
+  useEffect(() => {
+    if (!isMenuOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [isMenuOpen]);
+
   return (
     <nav
       className={cn(
         "fixed top-0 left-0 w-full z-40 transition-all duration-300",
-        isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5"
+        isScrolled ? "py-3 bg-background/80 backdrop-blur-md" : "py-5"
       )}
+      aria-label="Primary"
     >
       <div className="container flex items-center justify-between">
         <a
@@ -35,40 +52,72 @@ export const Navbar = () => {
           href="#hero"
         >
           <span className="relative z-10">
-            <span className="text-glow text-foreground"> Khosrat A.</span>{" "}
+            <span className="text-glow text-foreground">Khosrat A.</span>{" "}
             Portfolio
           </span>
         </a>
 
+        {/* Desktop */}
         <div className="hidden md:flex space-x-8">
-          {navItems.map((item, key) => (
-            <a key={key}
-            href={item.href} className="text-foreground/80 hover:text-primary transition-colors duration-300"
+          {navItems.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="text-foreground/80 hover:text-primary transition-colors duration-300"
             >
-            {item.name}</a>
+              {item.name}
+            </a>
           ))}
         </div>
 
-          <button onClick={() => setIsMenuOpen((prev) => !prev)} 
+        {/* Mobile toggle */}
+        <button
+          onClick={() => setIsMenuOpen((prev) => !prev)}
           className="md:hidden p-2 text-foreground z-50"
-          aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
-          > {isMenuOpen? <X size={24} /> : <Menu size={24}/>} </button>
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-menu"
+        >
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
 
-          <div className={cn("fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex-col items-center justify-center",
-            "transition-all duration-300 md:hidden",
-            isMenuOpen ? "opacity-100 pointer-events-auto" 
-            : "opacity-0 pointer-none:"
-          )}>
-        <div className="flex flex-col space-y-8 text-xl">
-          {navItems.map((item, key) => (
-            <a key={key}
-            href={item.href} className="text-foreground/80 hover:text-primary transition-colors duration-300"
-            onClick={() => setIsMenuOpen(false)}
-            >
-            {item.name}</a>
-          ))}
+        {/* OVERLAY + MENY */}
+        {/* OBS: här byter vi 'pointer-none:' -> 'pointer-events-none' när stängd */}
+        <div
+          id="mobile-menu"
+          role="dialog"
+          aria-modal="true"
+          className={cn(
+            "fixed inset-0 z-40 md:hidden",
+            "transition-opacity duration-300",
+            // Overlay: svag mörk ton + blur (fallback: ingen blur om ej stött)
+            "bg-black/40 backdrop-blur-sm supports-[backdrop-filter]:backdrop-blur-sm",
+            isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          )}
+          // Klick på bakgrunden stänger menyn
+          onClick={() => setIsMenuOpen(false)}
+        >
+          {/* Själva panelen – centrera innehåll och hindra klick-propagation */}
+          <div
+            className="flex min-h-full items-center justify-center p-6"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="w-[78%] max-w-sm bg-card/90 border border-border rounded-xl shadow-lg p-8">
+              <nav className="flex flex-col space-y-8 text-xl">
+                {navItems.map((item) => (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    className="text-foreground/90 hover:text-primary transition-colors duration-300"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.name}
+                  </a>
+                ))}
+              </nav>
+            </div>
+          </div>
         </div>
-         </div>
       </div>
     </nav>
   );
