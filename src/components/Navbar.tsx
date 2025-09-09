@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { cn } from "../lib/utils";
 import { Menu, X } from "lucide-react";
+import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
   { name: "Home", href: "#hero" },
@@ -14,21 +15,20 @@ export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // 1) Skugga headern vid scroll
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // 2) Lås body-scroll när mobilmenyn är öppen
   useEffect(() => {
     const prev = document.body.style.overflow;
     document.body.style.overflow = isMenuOpen ? "hidden" : prev || "";
-    return () => { document.body.style.overflow = prev; };
+    return () => {
+      document.body.style.overflow = prev;
+    };
   }, [isMenuOpen]);
 
-  // 3) Stäng med ESC (tillgänglighet)
   useEffect(() => {
     if (!isMenuOpen) return;
     const onKey = (e: KeyboardEvent) => {
@@ -57,8 +57,7 @@ export const Navbar = () => {
           </span>
         </a>
 
-        {/* Desktop */}
-        <div className="hidden md:flex space-x-8">
+        <div className="hidden md:flex items-center gap-6">
           {navItems.map((item) => (
             <a
               key={item.href}
@@ -68,21 +67,22 @@ export const Navbar = () => {
               {item.name}
             </a>
           ))}
+          <ThemeToggle />
         </div>
 
-        {/* Mobile toggle */}
-        <button
-          onClick={() => setIsMenuOpen((prev) => !prev)}
-          className="md:hidden p-2 text-foreground z-50"
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          aria-expanded={isMenuOpen}
-          aria-controls="mobile-menu"
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="md:hidden flex items-center gap-2 z-50">
+          <ThemeToggle />
+          <button
+            onClick={() => setIsMenuOpen((prev) => !prev)}
+            className="p-2 text-foreground"
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-menu"
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
 
-        {/* OVERLAY + MENY */}
-        {/* OBS: här byter vi 'pointer-none:' -> 'pointer-events-none' när stängd */}
         <div
           id="mobile-menu"
           role="dialog"
@@ -90,14 +90,13 @@ export const Navbar = () => {
           className={cn(
             "fixed inset-0 z-40 md:hidden",
             "transition-opacity duration-300",
-            // Overlay: svag mörk ton + blur (fallback: ingen blur om ej stött)
             "bg-black/40 backdrop-blur-sm supports-[backdrop-filter]:backdrop-blur-sm",
-            isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+            isMenuOpen
+              ? "opacity-100 pointer-events-auto"
+              : "opacity-0 pointer-events-none"
           )}
-          // Klick på bakgrunden stänger menyn
           onClick={() => setIsMenuOpen(false)}
         >
-          {/* Själva panelen – centrera innehåll och hindra klick-propagation */}
           <div
             className="flex min-h-full items-center justify-center p-6"
             onClick={(e) => e.stopPropagation()}
