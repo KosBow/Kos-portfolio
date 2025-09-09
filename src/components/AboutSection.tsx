@@ -15,7 +15,7 @@ export const AboutSection = () => {
             </h3>
 
             <p className="text-muted-foreground">
-              Junior .NET developer with a passion for building responsive and
+              .NET developer with a passion for building responsive and
               accessible web applications. Curious, reliable, and always eager
               to learn new technologies.
             </p>
