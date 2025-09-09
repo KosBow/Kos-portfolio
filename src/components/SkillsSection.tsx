@@ -21,13 +21,13 @@ type Skill = {
 const skills: Skill[] = [
   // Frontend
   { name: "HTML/CSS", level: LEVEL.confident, category: "frontend", evidence: "ZerBarberShop (WCAG, responsive design)" },
-  { name: "JavaScript (ES6+)", level: LEVEL.confident, category: "frontend", evidence: "React projects, hobby app" },
-  { name: "React", level: LEVEL.confident, category: "frontend", evidence: "ZerBarberShop (frontend)" },
+  { name: "JavaScript (ES6+)", level: LEVEL.working, category: "frontend", evidence: "React projects, hobby app" },
+  { name: "React", level: LEVEL.working, category: "frontend", evidence: "ZerBarberShop (frontend)" },
   { name: "TypeScript", level: LEVEL.working, category: "frontend", evidence: "Smaller components in personal projects" },
   { name: "Accessibility & Responsive Design", level: LEVEL.working, category: "frontend", evidence: "ZerBarberShop, accessibility focus" },
 
   // Backend
-  { name: "C# / .NET Core", level: LEVEL.confident, category: "backend", evidence: "API & backend for ZerBarberShop" },
+  { name: "C# / .NET Core", level: LEVEL.working, category: "backend", evidence: "API & backend for ZerBarberShop" },
   { name: "ASP.NET Web API", level: LEVEL.working, category: "backend", evidence: "CRUD, auth patterns in school/personal projects" },
   { name: "Entity Framework / LINQ", level: LEVEL.working, category: "backend", evidence: "Data models + queries (SQLite)" },
   { name: "SQLite / SQL", level: LEVEL.working, category: "backend", evidence: "ZerBarberShop, local development flow" },
