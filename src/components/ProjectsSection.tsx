@@ -14,13 +14,15 @@ const projects = [
   {
     id: 2,
     title: "AeA Barbershop",
-    description:
-     "A modern React-based website for a real barbershop in Linköping, featuring responsive design, and WCAG accessibility.",
-    image:"/projects/AeABarbershop-HomePage.png",
-    tags: ["React", "CSS", "WCAG", "Responsive Design", "UI/UX"],
+    description: `A modern React-based website built for a real barbershop in Linköping.
+    Focused on responsive design, accessibility (WCAG 2.1), and a clean,
+    user-friendly interface aligned with the client’s brand identity.`,
+
+    image: "/projects/AeABarbershop-HomePage.png",
+    tags: ["React", "CSS", "WCAG 2.1", "Responsive Design", "UI/UX", "Client Project"],
     demoUrl: "https://aea-barbershop.vercel.app/",
     githubUrl: "https://github.com/KosBow/BarberShop-V2",
-    },
+  },
 ];
 
 export const ProjectsSection = () => {
