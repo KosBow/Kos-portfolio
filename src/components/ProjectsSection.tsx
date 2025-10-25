@@ -3,7 +3,7 @@ import { ArrowRight, ExternalLink, Github } from "lucide-react";
 const projects = [
   {
     id: 1,
-    title: "ZerBarberShop Home page",
+    title: "ZerBarberShop",
     description:
       "A full-stack app built with C# (.NET Core Web API) for the backend and React for the frontend.",
     image: "/projects/ZerBarberShop_Home.png",
@@ -11,6 +11,16 @@ const projects = [
     demoUrl: "#", // Later add a live demo link i possible.
     githubUrl: "https://github.com/KosBow/ZerBarberShop",
   },
+  {
+    id: 2,
+    title: "AeA Barbershop",
+    description:
+     "A modern React-based website for a real barbershop in Linköping, featuring responsive design, and WCAG accessibility.",
+    image:"/projects/AeABarbershop-HomePage.png",
+    tags: ["React", "CSS", "WCAG", "Responsive Design", "UI/UX"],
+    demoUrl: "https://aea-barbershop.vercel.app/",
+    githubUrl: "https://github.com/KosBow/BarberShop-V2",
+    },
 ];
 
 export const ProjectsSection = () => {
