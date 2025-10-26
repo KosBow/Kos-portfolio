@@ -8,18 +8,23 @@ const projects = [
       "A full-stack app built with C# (.NET Core Web API) for the backend and React for the frontend.",
     image: "/projects/ZerBarberShop_Home.png",
     tags: ["C#", "SQLite", "Swagger", "React", "JavaScript", "TailwindCSS"],
-    demoUrl: "#", // Later add a live demo link i possible.
+    demoUrl: "#",
     githubUrl: "https://github.com/KosBow/ZerBarberShop",
   },
   {
     id: 2,
     title: "AeA Barbershop",
-    description: `A modern React-based website built for a real barbershop in Linköping.
-    Focused on responsive design, accessibility (WCAG 2.1), and a clean,
-    user-friendly interface aligned with the client’s brand identity.`,
-
+    description:
+      "A modern React-based website built for a real barbershop in Linköping. Focused on responsive design, accessibility (WCAG 2.1), and a clean, user-friendly interface aligned with the client’s brand identity.",
     image: "/projects/AeABarbershop-HomePage.png",
-    tags: ["React", "CSS", "WCAG 2.1", "Responsive Design", "UI/UX", "Client Project"],
+    tags: [
+      "React",
+      "CSS",
+      "WCAG 2.1",
+      "Responsive Design",
+      "UI/UX",
+      "Client Project",
+    ],
     demoUrl: "https://aea-barbershop.vercel.app/",
     githubUrl: "https://github.com/KosBow/BarberShop-V2",
   },
@@ -37,11 +42,12 @@ export const ProjectsSection = () => {
           full-stack applications with React and .NET Core — always keeping
           performance, accessibility, and user experience in mind.
         </p>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
             <div
               key={project.id}
-              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
+              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover flex flex-col justify-between h-full min-h-[470px]"
             >
               <div className="h-48 overflow-hidden">
                 <img
@@ -50,7 +56,8 @@ export const ProjectsSection = () => {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
-              <div className="p-6">
+
+              <div className="p-6 flex flex-col flex-grow">
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag) => (
                     <span
@@ -62,16 +69,24 @@ export const ProjectsSection = () => {
                   ))}
                 </div>
 
-                <h3 className="text-xl font-semibold mb-1">{project.title}</h3>
-                <p className="text-muted-foreground text-sm mb-4">
-                  {project.description}
-                </p>
-                <div className="flex gap-4">
+                <div className="mb-6 flex flex-col justify-start min-h-[110px]">
+                  <h3 className="text-xl font-semibold mb-1 text-primary/90 group-hover:text-primary transition-colors duration-300">
+                    {project.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {project.description}
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-4 mt-auto">
                   <a
                     href={project.demoUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                    className="inline-flex items-center justify-center p-2 rounded-full
+                               text-foreground/80 hover:text-primary hover:bg-primary/10
+                               hover:shadow-[0_0_20px_rgba(139,92,246,0.75)] hover:-translate-y-0.5
+                               transition-all duration-300"
                   >
                     <ExternalLink size={20} />
                   </a>
@@ -79,7 +94,10 @@ export const ProjectsSection = () => {
                     href={project.githubUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                    className="inline-flex items-center justify-center p-2 rounded-full
+                               text-foreground/80 hover:text-primary hover:bg-primary/10
+                               hover:shadow-[0_0_20px_rgba(139,92,246,0.75)] hover:-translate-y-0.5
+                               transition-all duration-300"
                   >
                     <Github size={20} />
                   </a>
