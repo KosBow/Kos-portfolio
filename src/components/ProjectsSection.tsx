@@ -14,7 +14,7 @@ const projects = [
   },
   {
     id: 2,
-    title: "AeA Barbershop",
+    title: "Eden Studio Barbershop",
     description:
       "A modern React-based website built for a real barbershop in Linköping. Focused on responsive design, accessibility (WCAG 2.1), and a clean, user-friendly interface aligned with the client’s brand identity.",
     image: "/projects/AeABarbershop-HomePage.png",
